@@ -1,5 +1,3 @@
-import numpy as np
-
 #!/usr/bin/env python
 
 import paramiko
