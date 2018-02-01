@@ -28,7 +28,8 @@ def deploy(path, server, prefix):
     ssh.exec_command('rm -rf sprint; git clone https://github.com/iansmeenk/sprint ~/sprint')
     print 'Pull from github successful'
     ssh.exec_command('crontab -l > mycron; echo "5 * * * * python sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
-    ssh.close() 
+    print 'Script initialized'
+    ssh.close()
 
 # test deploy
 deploy('/Users/danielle/Desktop/HardWork/USF/Module3/MSAN603/GroupProject/Sprint_DDIHS.pem', 'ec2-user@ec2-34-215-80-11.us-west-2.compute.amazonaws.com', 'name_')
