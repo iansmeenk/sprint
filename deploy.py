@@ -12,10 +12,10 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect('', username = '', key_filename = '' )
 
 
-ssh.exec_command("rm -rf pubcrawl; git clone git@bitbucket.org:kejnn/pubcrawl.git")
-print "Pull from BitBucket successful"
+ssh.exec_command("rm -rf sprint; git clone https://github.com/iansmeenk/sprint.git")
+print "Pull from Github successful"
 time.sleep(10)
-print "Script fully executed ... exiting"
+print "Script fully executed ... exhilarating"
 ssh.close()
 ## EOF ##
 
