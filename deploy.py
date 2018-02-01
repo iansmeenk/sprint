@@ -20,3 +20,6 @@ ssh.close()
 ## EOF ##
 
 def deploy(path, server, prefix):
+    # connect to server
+    ssh = paramiko.SSHClient()
+    ssh.connect(hostname=server, key_filename=path)
