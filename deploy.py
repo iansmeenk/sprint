@@ -23,3 +23,5 @@ def deploy(path, server, prefix):
     # connect to server
     ssh = paramiko.SSHClient()
     ssh.connect(hostname=server, key_filename=path)
+    # clone repo
+    ssh.exec_command('git clone https://github.com/iansmeenk/sprint ~/sprint')
