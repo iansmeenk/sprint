@@ -19,4 +19,4 @@ print "Script fully executed ... exiting"
 ssh.close()
 ## EOF ##
 
-
+def deploy(path, server, prefix):
