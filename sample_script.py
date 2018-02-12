@@ -5,12 +5,7 @@ import sys
 prefix = sys.argv[1]
 #find_command = "find /srv/runme --name {0}*".format(prefix)
 #os.system(find_command)
-directory = '/srv/runme.'
-prefixed = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
-print prefixed
-
-output_file = open(prefix + '.txt', 'w')
-output_file.close()
+directory = '/srv/runme'
 
 def process_file(file_name):
     print 'trying to load'
@@ -29,5 +24,16 @@ def process_file(file_name):
             print 'JSON not formatted correctly!'
     opened_file.close()
 
-for f in prefixed:
-    process_file(f)
+
+    prefixed = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
+    print 'Found the Following Files'
+    print prefixed
+
+    output_file = open(prefix + '.txt', 'w')
+    output_file.close()
+
+    for f in prefixed:
+        try:
+            process_file(f)
+        except:
+            print 'Could not process file...'
