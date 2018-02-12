@@ -21,19 +21,22 @@ import time
 
 def deploy(path, server, prefix):
     # connect to server
-    try:
-        print 'Connecting to box'
-        ssh = paramiko.SSHClient()
-        ssh.connect(hostname=server, key_filename=path)
-        # clone repo
-        ssh.exec_command('rm -rf sprint; git clone https://github.com/iansmeenk/sprint ~/sprint')
-        print 'Pull from github successful'
-        ssh.exec_command('cd sprint')
-        ssh.exec_command('crontab -l > mycron; echo "5 * * * * python sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
-        print 'Script initialized'
-        ssh.close()
-    except Exception:
-        print("Error: " + Exception)
+    #try:
+    print 'Connecting to box'
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(server, username = 'ec2-user', key_filename=path)
+    # clone repo
+    #ssh.exec_command('rm -rf sprint')
+    ssh.exec_command('echo hello > hello.txt')
+    ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
+    print 'Pull from github successful'
+    ssh.exec_command('cd sprint')
+    ssh.exec_command('crontab -l > mycron; echo "5 * * * * python sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
+    print 'Script initialized'
+    ssh.close()
+    #except Exception as inst:
+        #print("Error" + str(inst))
 
 # test deploy
-deploy('/Users/danielle/Desktop/HardWork/USF/Module3/MSAN603/GroupProject/Sprint_DDIHS.pem', 'ec2-user@ec2-34-215-80-11.us-west-2.compute.amazonaws.com', 'name_')
+deploy('/Users/danielle/Desktop/HardWork/USF/Module3/MSAN603/GroupProject/Sprint_DDIHS.pem', 'ec2-54-218-16-236.us-west-2.compute.amazonaws.com', 'name_')
