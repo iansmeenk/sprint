@@ -31,7 +31,7 @@ def deploy(path, server, prefix):
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
     print 'Pull from github successful'
     ssh.exec_command('cd sprint')
-    ssh.exec_command('crontab -l > mycron; echo "* * * * * python sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
+    ssh.exec_command('crontab -l > mycron; echo "* * * * * python /home/ec2-user/sprint/sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
     print 'Script initialized'
     ssh.close()
     #except Exception as inst:
