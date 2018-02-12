@@ -27,12 +27,11 @@ def deploy(path, server, prefix):
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(server, username = 'ec2-user', key_filename=path)
     # clone repo
-    #ssh.exec_command('rm -rf sprint')
-    ssh.exec_command('echo hello > hello.txt')
+    ssh.exec_command('rm -rf sprint')
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
     print 'Pull from github successful'
     ssh.exec_command('cd sprint')
-    ssh.exec_command('crontab -l > mycron; echo "5 * * * * python sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
+    ssh.exec_command('crontab -l > mycron; echo "* * * * * python sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
     print 'Script initialized'
     ssh.close()
     #except Exception as inst:
