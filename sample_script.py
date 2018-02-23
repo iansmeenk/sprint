@@ -13,7 +13,6 @@ def process_file(file_name):
     for line in opened_file:
         try:
             loaded_json = json.loads(line)
-            print loaded_json
             name = loaded_json["name"]
             age = loaded_json["prop"]["age"]
             if loaded_json["prop"]["age"] >= 0:
@@ -24,16 +23,17 @@ def process_file(file_name):
             print 'JSON not formatted correctly!'
     opened_file.close()
 
+    
+if __name__ == '__main__':
+    prefixed = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
+    print 'Found the Following Files'
+    print prefixed
 
-prefixed = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
-print 'Found the Following Files'
-print prefixed
+    output_file = open(directory + '/' + prefix + '.txt', 'w')
+    output_file.close()
 
-output_file = open(directory + '/' + prefix + '.txt', 'w')
-output_file.close()
-
-for f in prefixed:
-    try:
-        process_file(f)
-    except:
-        print 'Could not process file...'
+    for f in prefixed:
+        try:
+            process_file(f)
+        except:
+            print 'Could not process file...'
