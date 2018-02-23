@@ -3,23 +3,16 @@
 import paramiko
 import time
 
-## Example Deploy Script
-## This file uses paramiko to login to a box. Note that this is a skeleton file and you will need to do a bunch to complete the assignment.
-
-# print "Connecting to box"
-# ssh = paramiko.SSHClient()
-# ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-# ssh.connect('', username = '', key_filename = '' )
-
-
-# ssh.exec_command("rm -rf sprint; git clone https://github.com/iansmeenk/sprint.git")
-# print "Pull from Github successful"
-# time.sleep(10)
-# print "Script fully executed ... exhilarating"
-# ssh.close()
-## EOF ##
-
 def deploy(path, server, prefix):
+    """ssh into remote server & search for json files
+    beginning with prefix
+    
+    params
+    -----
+    path: filepath to .pem file to ssh into amazon server
+    server: amazon server to ssh to
+    prefix: prefix of json files to search for
+    """
     # connect to server
     print 'Connecting to box'
     ssh = paramiko.SSHClient()
@@ -30,7 +23,9 @@ def deploy(path, server, prefix):
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
     print 'Pull from github successful'
     ssh.exec_command('cd sprint')
-    ssh.exec_command('crontab -l > mycron; echo "5 * * * * python /home/testtest/sprint/sample_script.py %s" >> mycron; crontab mycron; rm mycron' % prefix)
+    ssh.exec_command('crontab -l > mycron; echo "5 * * * * python \
+                     /home/testtest/sprint/sample_script.py %s" >> mycron;\
+                     crontab mycron; rm mycron' % prefix)
     print 'Script initialized'
     ssh.close()
 
