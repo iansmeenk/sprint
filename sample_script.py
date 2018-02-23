@@ -8,6 +8,15 @@ prefix = sys.argv[1]
 directory = '/srv/runme'
 
 def process_file(file_name):
+    """process json file and write to file
+    <directory>/<prefix>.txt
+    
+    prefix is determined when deploy is run
+    
+    params
+    -----
+    file_name: file path to json file to read
+    """
     print 'trying to load'
     opened_file = open(directory + '/'+ file_name)
     for line in opened_file:
