@@ -25,18 +25,3 @@ def process_json(data):
             output_file.close()
     except:
         print 'JSON not formatted correctly!'
-
-    
-if __name__ == '__main__':
-    prefixed = [filename for filename in os.listdir(directory) if filename.startswith(prefix)]
-    print 'Found the Following Files'
-    print prefixed
-
-    output_file = open(directory + '/' + prefix + '.txt', 'w')
-    output_file.close()
-
-    for f in prefixed:
-        try:
-            process_file(f)
-        except:
-            print 'Could not process file...'
