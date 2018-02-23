@@ -14,7 +14,7 @@ def process_json(data):
     
     params
     -----
-    file_name: file path to json file to read
+    data: dictionary read from requests.get_json()
     """
     try:
         name = data["name"]
