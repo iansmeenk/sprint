@@ -7,7 +7,7 @@ from logging.handlers import TimedRotatingFileHandler
 app = Flask(__name__)
 
 # Create rotating logs every 2 minutes
-logger = logging.getLogger("Roatating Logger")
+logger = logging.getLogger("Rotating Logger")
 logger.setLevel(logging.INFO)
 handler = TimedRotatingFileHandler('json_processing_logs.txt', when='m', interval=2)
 logger.addHandler(handler)
@@ -19,9 +19,8 @@ def process(prefix):
     logger.info(content)
     content_processed  = process_json(content, prefix) # Process and write to file
 
-    return content_processed
 
-app.run()
+app.run(0.0.0.0:8080)
 
 
 
