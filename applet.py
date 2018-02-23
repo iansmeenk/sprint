@@ -20,7 +20,5 @@ def process(prefix):
     content_processed  = process_json(content, prefix) # Process and write to file
 
 
-app.run(0.0.0.0:8080)
-
-
+app.run(host='0.0.0.0', port=8080)
 
