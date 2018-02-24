@@ -25,6 +25,7 @@ def deploy(path, server, prefix):
     ssh.exec_command('cd sprint')
     ssh.exec_command('screen -d -m -S flask python applet.py %s' % prefix)
     print 'Script initialized'
+    ssh.exec_command('echo $(screen -ls) > test.txt')
     ssh.close()
 
 # test deploy
