@@ -17,7 +17,7 @@ def deploy(path, server, prefix):
     print 'Connecting to box'
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(server, username = 'testtest', key_filename=path)
+    ssh.connect(server, username='testtest', key_filename=path)
     # clone repo
     ssh.exec_command('rm -rf sprint')
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
@@ -25,7 +25,6 @@ def deploy(path, server, prefix):
     ssh.exec_command('cd sprint')
     ssh.exec_command('screen -d -m -S flask python applet.py %s' % prefix)
     print 'Script initialized'
-    ssh.exec_command('echo $(screen -ls) > test.txt')
     ssh.close()
 
 # test deploy
