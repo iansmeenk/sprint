@@ -23,7 +23,7 @@ def deploy(path, server, prefix):
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
     print 'Pull from github successful'
     ssh.exec_command('cd sprint')
-    ssh.exec_command(‘screen’)
+    ssh.exec_command('screen')
     ssh.exec_command('python applet.py %s' % prefix)
     print 'Script initialized'
     ssh.close()
