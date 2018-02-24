@@ -23,9 +23,7 @@ def deploy(path, server, prefix):
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
     print 'Pull from github successful'
     ssh.exec_command('cd sprint')
-    ssh.exec_command('crontab -l > mycron; echo "*/5 * * * * python \
-                     /home/testtest/sprint/data_processing.py %s" >> mycron;\
-                     crontab mycron; rm mycron' % prefix)
+    ssh.exec_command('python applet.py %s' % prefix)
     print 'Script initialized'
     ssh.close()
 
