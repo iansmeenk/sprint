@@ -4,7 +4,8 @@ from flask import Flask, request
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
-from process_file import process_json
+from data_processing import process_json
+
 
 prefix = sys.argv[1]
 app = Flask(__name__)
