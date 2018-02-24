@@ -16,7 +16,7 @@ handler = TimedRotatingFileHandler('Raw.txt', when='m', interval=2)
 logger.addHandler(handler)
 
 @app.route("/", methods='POST')
-def process(prefix):
+def process():
 
     content = request.get_json(silent=True)
     logger.info(content)
