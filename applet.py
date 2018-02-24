@@ -1,9 +1,12 @@
+import sys
+
 from flask import Flask, request
-from process_file import process_json
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
+from process_file import process_json
 
+prefix = sys.argv[1]
 app = Flask(__name__)
 
 # Create rotating logs every 2 minutes
