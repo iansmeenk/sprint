@@ -13,7 +13,7 @@ app = Flask(__name__)
 # Create rotating logs every 2 minutes
 logger = logging.getLogger("Rotating Logger")
 logger.setLevel(logging.INFO)
-handler = TimedRotatingFileHandler('/Users/ec2-user/srv/runme/Raw.txt', when='m', interval=2)
+handler = TimedRotatingFileHandler('/home/ec2-user/srv/runme/Raw.txt', when='m', interval=2)
 logger.addHandler(handler)
 
 @app.route("/", methods=['POST'])
