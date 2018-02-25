@@ -20,7 +20,7 @@ logger.addHandler(handler)
 def process():
 
     content = request.get_json()
-    logger.info(content)
+    logger.info(str(content))
     process_json(content, prefix) # Process and write to file
 
 
