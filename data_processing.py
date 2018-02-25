@@ -15,6 +15,7 @@ def process_json(data, prefix):
     
     prefix: directory where output should be written
     """
+    data = json.loads(data)
     try:
         name = data["name"]
         age = data["prop"]["age"]
