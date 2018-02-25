@@ -23,7 +23,7 @@ def deploy(path, server, prefix):
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
     print 'Pull from github successful'
     # make necessary folders
-    ssh.exec_command('sudo mkdir -p /srv/runme/%s' % prefix)
+    ssh.exec_command('mkdir -p /srv/runme/%s' % prefix)
     # start screen
     ssh.exec_command('screen -d -m -S flask python ~/sprint/applet.py %s' % prefix)
     print 'Script initialized'
