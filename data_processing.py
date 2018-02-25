@@ -15,8 +15,8 @@ def process_json(data, prefix):
     
     prefix: directory where output should be written
     """
-    data = json.loads(data)
     try:
+        data = json.loads(data)
         name = data["name"]
         age = data["prop"]["age"]
         if data["prop"]["age"] >= 0:
