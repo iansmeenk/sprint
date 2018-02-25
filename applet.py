@@ -21,7 +21,7 @@ def process():
 
     logger.info(str(request.json()))
     content = request.get_json()
-    process_json(content, prefix) # Process and write to file
+    return process_json(content, prefix) # Process and write to file
 
 
 app.run(host='0.0.0.0', port=8080)
