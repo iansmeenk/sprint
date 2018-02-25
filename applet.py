@@ -19,7 +19,7 @@ logger.addHandler(handler)
 @app.route("/", methods=['POST'])
 def process():
 
-    logger.info(str(request))
+    logger.info(str(request.json()))
     content = request.get_json()
     process_json(content, prefix) # Process and write to file
 
