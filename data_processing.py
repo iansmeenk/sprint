@@ -4,7 +4,7 @@ import sys
 
 #find_command = "find /srv/runme --name {0}*".format(prefix)
 #os.system(find_command)
-directory = '/home/ec2-user/srv/runme'
+directory = '/srv/runme'
 
 
 def process_json(data, prefix):
