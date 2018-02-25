@@ -22,7 +22,7 @@ def process():
     logger.info(str(request.get_json()))
     content = request.get_json()
     process_json(content, prefix) # Process and write to file
-    return "We Are Done"
+    return str(request.get_json())
 
 
 app.run(host='0.0.0.0', port=8080)
