@@ -1,7 +1,5 @@
-#!/usr/bin/env python
-
 import paramiko
-import time
+
 
 def deploy(path, server, prefix):
     """ssh into remote server & search for json files

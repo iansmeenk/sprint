@@ -1,9 +1,6 @@
-import os
-import json
-import sys
 
-#find_command = "find /srv/runme --name {0}*".format(prefix)
-#os.system(find_command)
+import json
+
 directory = '/srv/runme'
 
 
@@ -39,6 +36,3 @@ def process_json(data, prefix):
             output_file.close()
     except:
         print 'JSON not formatted correctly!'
-
-
-        #hi
