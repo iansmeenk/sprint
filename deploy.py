@@ -23,10 +23,10 @@ def deploy(path, server, prefix):
     # make folders
     ssh.exec_command('mkdir -p /srv/runme/%s' % prefix)
     # start screen
-    ssh.exec_command('screen -d -m -S flask python ~/sprint/applet.py %s' % prefix)
+    ssh.exec_command('screen -d -m -s flask python ~/sprint/applet.py %s' % prefix)
     print 'Script initialized'
     ssh.close()
 
 if __name__ == '__main__':
     # test deploy
-    # deploy()
+    deploy('/Users/spencerstanley/GoogleDrive/MSAN/misc/keys/msan694_sps.pem', 'ec2-34-211-228-12.us-west-2.compute.amazonaws.com','a')
