@@ -20,12 +20,11 @@ def deploy(path, server, prefix):
     ssh.exec_command('rm -rf sprint')
     ssh.exec_command('git clone https://github.com/iansmeenk/sprint.git')
     print 'Pull from github successful'
-    # make necessary folders
-    ssh.exec_command('mkdir -p /srv/runme/%s' % prefix)
     # start screen
     ssh.exec_command('screen -d -m -S flask python ~/sprint/applet.py %s' % prefix)
     print 'Script initialized'
     ssh.close()
 
-# test deploy
-# deploy('/Users/danielle/Desktop/HardWork/USF/Module3/MSAN603/GroupProject/Sprint_DDIHS.pem', 'ec2-54-218-16-236.us-west-2.compute.amazonaws.com', 'name_')
+if __name__ == '__main__':
+    # test deploy
+    # deploy()
