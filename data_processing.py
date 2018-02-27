@@ -1,7 +1,7 @@
 import json
 
 
-directory = '~/srv/runme'
+directory = '/srv/runme'
 
 def process_json(data, prefix):
     """process json and write to <prefix>.txt
